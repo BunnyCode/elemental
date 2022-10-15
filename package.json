@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/BunnyCode/elemental/issues"
   },
-  "homepage": "https://github.com/BunnyCode/elemental#readme"
+  "homepage": "https://github.com/BunnyCode/elemental#readme",
+  "dependencies": {
+    "element-scraper": "^0.1.1"
+  }
 }

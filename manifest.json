@@ -10,11 +10,17 @@
       "128": "images/icon-128.png"
   },
   "host_permissions": [
-    "https://developer.chrome.com/*"
+    "*://*/*"
   ],
-  "permissions": ["activeTab", "scripting", "tabGroups"],
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["/scripts/content.js"]
+    }
+  ],
+  "permissions": ["storage", "activeTab", "scripting", "tabGroups"],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "menu/popup.html"
   },
   "commands": {
     "_execute_action": {

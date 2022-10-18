@@ -30,6 +30,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: "images", to: "images" },
+        { from: "menu/styling.css", to: "styling.css" },
         { from: "scripts/client.js", to: "client.js" },
       ],
     }),

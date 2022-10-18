@@ -8,22 +8,31 @@ function initTableFunction() {
 function setHeaderCaptureParameters() {
   const functionTag = document.querySelector(".table-creator")
   functionTag.innerHTML =
-    `<input id="table-header">
-    </input>`
+    `<div>
+    <p>Header Capture Element</p>
+    <input id="table-header">
+    </input>
+    </div>`
 }
 
 function setBodyCaptureParameters() {
   const functionTag = document.querySelector(".table-creator")
   functionTag.innerHTML +=
-    `<input id="table-body">
-    </input>`
+    `<div>
+    <p>Body capture</p>
+    <input id="table-body">
+    </input>
+    </div>`
 }
 
 function setBodyDataSplitParameters() {
   const functionTag = document.querySelector(".table-creator")
   functionTag.innerHTML +=
-    `<input id="table-split">
-    </input>`
+    `<div>
+    <p>Body Split on</p>
+    <input id="table-split">
+    </input>
+    </div>`
 }
 
 function setUpTable() {
@@ -31,7 +40,8 @@ function setUpTable() {
   functionTag.innerHTML =
     `<table class="table">
     <thead class="header">
-    </thead></table>`
+    </thead>
+    </table>`
 }
 
 export {initTableFunction, 

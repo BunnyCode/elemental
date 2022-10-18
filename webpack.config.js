@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const CopyPlugin = require("copy-webpack-plugin")
 
 module.exports = {
+  mode: 'production',
   entry: {
     main: "./scripts/main.js",
   },
@@ -30,6 +31,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: "images", to: "images" },
+        { from: "manifest.json", to: "manifest.json" },
         { from: "menu/styling.css", to: "styling.css" },
         { from: "scripts/client.js", to: "client.js" },
       ],

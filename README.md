@@ -1,13 +1,10 @@
-# elemental
-Chrome extension. Gets elemental data from a webpage.
-  // "content_scripts": [
-  //   {
-  //     "js": ["scripts/content.js"],
-  //     "matches": [
-  //       "https://developer.chrome.com/docs/extensions/*",
-  //       "https://developer.chrome.com/docs/webstore/*"
-  //     ]
-  //   }
-  // ],
+# Elemental
 
-  "build": "webpack --config webpack.config.js; cp manifest.json dist/manifest.json"
+> Create tables from data on your 
+
+
+To install addon run **npm run build**
+
+
+
+  You need to build the Chrome extension with webpack to be able to run it with the dependencies. 

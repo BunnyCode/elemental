@@ -9,3 +9,5 @@ Chrome extension. Gets elemental data from a webpage.
   //     ]
   //   }
   // ],
+
+  "build": "webpack --config webpack.config.js; cp manifest.json dist/manifest.json"

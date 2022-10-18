@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Elemental",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Gets element data on a page",
   "icons": {
       "16": "images/icon-16.png",
@@ -15,12 +15,12 @@
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["/scripts/content.js"]
+      "js": ["client.js"]
     }
   ],
   "permissions": ["storage", "activeTab", "scripting", "tabGroups"],
   "action": {
-    "default_popup": "menu/popup.html"
+    "default_popup": "popup.html"
   },
   "commands": {
     "_execute_action": {

@@ -1,8 +1,16 @@
+import manifest from '../manifest.json' // required for webpack to copy.
 import { getBodyDataFromStorage } from "./dataCapture.js"
-import * as elementScraper from 'element-scraper'
+import {
+  initTableFunction,
+  setHeaderCaptureParameters,
+  setBodyCaptureParameters,
+  setBodyDataSplitParameters,
+  setUpTable,
+} from "./functions/table.js"
+// import * as elementScraper from '/node_modules/element-scraper/dist/index.js'
 
 // Only global variable in extension space.
-let bodyData = ""
+let htmlBodyData = ""
 
 // Event listeners
 
@@ -14,10 +22,22 @@ getData.addEventListener("click", function () {
   return true
 })
 
-// button for manipulating data
-const manipulateData = document.getElementById("manipulate-data")
+// export { getBodyDataFromStorage, logDataFetchMessage }
+
+// format data.
+async function getDataCapture() {
+  htmlBodyData = await getBodyDataFromStorage()
+}
+
+/**
+ * Loads the table function.
+ */
+const manipulateData = document.getElementById("function-table")
 manipulateData.addEventListener("click", function () {
-  formatData()
+  initTableFunction()
+  setHeaderCaptureParameters()
+  setBodyCaptureParameters()
+  setBodyDataSplitParameters()
   return true
 })
 
@@ -47,11 +67,4 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 function logDataFetchMessage(dataFromUrl) {
   const dataFromField = document.getElementById("data-from")
   dataFromField.innerHTML = "Data Captured from: " + dataFromUrl
-}
-
-export { getBodyDataFromStorage, logDataFetchMessage }
-
-// format data.
-async function getDataCapture() {
-  bodyData = await getBodyDataFromStorage()
 }

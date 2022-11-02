@@ -17,7 +17,6 @@ import {nonGreedyFindMultiLineElementsByAttributeOrText} from '/node_modules/ele
 // Only global variable in extension space.
 let htmlBodyData = ""
 
-// Event listeners
 
 // button for triggering data save to chrome local storage.
 const getData = document.getElementById("get-data")
@@ -27,16 +26,11 @@ getData.addEventListener("click", function () {
   return true
 })
 
-
-
-// format data.
 async function getDataCapture() {
   htmlBodyData = await getBodyDataFromStorage()
 }
 
-/**
- * Loads the table function.
- */
+// Load table input component.
 const manipulateData = document.getElementById("function-table")
 manipulateData.addEventListener("click", function () {
   initTableFunction()
@@ -50,27 +44,24 @@ manipulateData.addEventListener("click", function () {
 
 // Call capture function on client side.
 function triggerUrlDataCapture() {
+  const currentTab = 0
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(
-      tabs[0].id,
+      tabs[currentTab].id,
       { message: "capture" },
       function (response) {}
     )
   })
 }
 
-// show message that data has been captured, from specific url.
+// show message in popup that data has been captured.
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   const fromUrl = sender.tab.url
   logDataFetchMessage(fromUrl)
   return true
 })
 
-/**
- * Show the url that data was fetched from.
- *
- * @param {string} dataFromUrl URL string
- */
+// Show the url that data was fetched from.
 function logDataFetchMessage(dataFromUrl) {
   const dataFromField = document.getElementById("data-from")
   dataFromField.innerHTML = "Data Captured from: " + dataFromUrl
@@ -81,8 +72,7 @@ const getTitles = document.getElementById("get-titles")
 getTitles.addEventListener("click", function () {
   openTable()
   const capturedDom = new DOMParser().parseFromString(htmlBodyData, "text/html")
-  const titles = capturedDom.getElementsByClassName("card-body")[0].innerHTML
-  const titlesElement = document.querySelector(".titles")
+
   const tableTitleHeader = document.querySelector("#table-header").value
   const tableDataHeader = document.querySelector("#table-data").value
   const captureElement = document.querySelector("#element-capture-name").value
@@ -91,7 +81,6 @@ getTitles.addEventListener("click", function () {
 
   const caputreContent = capturedDom.getElementsByClassName(captureElement)
 
-  titlesElement.innerHTML = ""
   addToTableHead(tableTitleHeader)
   addToTableHead(tableDataHeader)
   for (const content of caputreContent){

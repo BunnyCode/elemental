@@ -1,0 +1,1 @@
+Riktar sig till Utvecklare av L2-app, vision, krav, testning, beskrivning av kod på hög nivå, vad funkar? vad är kvar?

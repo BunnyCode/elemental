@@ -1,13 +1,18 @@
 import manifest from '../manifest.json' // required for webpack to copy.
-import { getBodyDataFromStorage } from "./dataCapture.js"
+import { getBodyDataFromStorage } from "./getStoredData.js"
 import {
   initTableFunction,
-  setHeaderCaptureParameters,
-  setBodyCaptureParameters,
-  setBodyDataSplitParameters,
-  setUpTable,
+  setTitleTableHeaderText, 
+  setTableDataHeaderText,
+  setBodyCaptureItteratorElement,
+  setTitleCaptureItteratorElement,
+  setDataCaptureItteratorElement,
+  openTable,
+  addRowToTable,
+  closeTable,
+  addToTableHead
 } from "./functions/table.js"
-// import * as elementScraper from '/node_modules/element-scraper/dist/index.js'
+import {nonGreedyFindMultiLineElementsByAttributeOrText} from '/node_modules/element-scraper/dist/index.js'
 
 // Only global variable in extension space.
 let htmlBodyData = ""
@@ -22,7 +27,7 @@ getData.addEventListener("click", function () {
   return true
 })
 
-// export { getBodyDataFromStorage, logDataFetchMessage }
+
 
 // format data.
 async function getDataCapture() {
@@ -35,9 +40,11 @@ async function getDataCapture() {
 const manipulateData = document.getElementById("function-table")
 manipulateData.addEventListener("click", function () {
   initTableFunction()
-  setHeaderCaptureParameters()
-  setBodyCaptureParameters()
-  setBodyDataSplitParameters()
+  setTitleTableHeaderText() 
+  setTableDataHeaderText()
+  setBodyCaptureItteratorElement()
+  setTitleCaptureItteratorElement()
+  setDataCaptureItteratorElement()
   return true
 })
 
@@ -68,3 +75,40 @@ function logDataFetchMessage(dataFromUrl) {
   const dataFromField = document.getElementById("data-from")
   dataFromField.innerHTML = "Data Captured from: " + dataFromUrl
 }
+
+// test thingy
+const getTitles = document.getElementById("get-titles")
+getTitles.addEventListener("click", function () {
+  openTable()
+  const capturedDom = new DOMParser().parseFromString(htmlBodyData, "text/html")
+  const titles = capturedDom.getElementsByClassName("card-body")[0].innerHTML
+  const titlesElement = document.querySelector(".titles")
+  const tableTitleHeader = document.querySelector("#table-header").value
+  const tableDataHeader = document.querySelector("#table-data").value
+  const captureElement = document.querySelector("#element-capture-name").value
+  const tableTitles = document.querySelector("#table-title-attribute").value
+  const tableData = document.querySelector("#table-data-attribute").value
+
+  const caputreContent = capturedDom.getElementsByClassName(captureElement)
+
+  titlesElement.innerHTML = ""
+  addToTableHead(tableTitleHeader)
+  addToTableHead(tableDataHeader)
+  for (const content of caputreContent){
+
+    const title = getElementPart(content, tableTitles)
+    const breadText = getElementPart(content, tableData)
+    addRowToTable(title, breadText)
+  }
+  closeTable()
+  return true
+})
+
+
+
+function getElementPart(content, searchParam) {
+  const innerContent = content.innerHTML;
+  return nonGreedyFindMultiLineElementsByAttributeOrText(innerContent, searchParam)
+}
+
+

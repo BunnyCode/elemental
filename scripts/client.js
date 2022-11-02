@@ -6,6 +6,7 @@ function setBodyData(capturedUrl) {
   console.log("Data saved from: " + capturedUrl)
 }
 
+// listener for when to get data.
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   const currentUrl = window.location.href
   setBodyData(currentUrl)

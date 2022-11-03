@@ -1,1 +1,5 @@
-Riktar sig till Daniel för examination, kapitelreflektioner
+Jag går igenom kapittel för kapittel och beskriver hur jag implementerart kunsakapen.
+
+
+
+

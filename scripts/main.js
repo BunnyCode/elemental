@@ -71,29 +71,26 @@ function logDataFetchMessage(dataFromUrl) {
 const getTitles = document.getElementById("get-titles")
 getTitles.addEventListener("click", function () {
   openTable()
-  const capturedDom = new DOMParser().parseFromString(htmlBodyData, "text/html")
+  addToTableHead(document.querySelector("#table-header").value)
+  addToTableHead(document.querySelector("#table-data").value)
 
-  const tableTitleHeader = document.querySelector("#table-header").value
-  const tableDataHeader = document.querySelector("#table-data").value
   const captureElement = document.querySelector("#element-capture-name").value
   const tableTitles = document.querySelector("#table-title-attribute").value
   const tableData = document.querySelector("#table-data-attribute").value
-
+  
+  const capturedDom = new DOMParser().parseFromString(htmlBodyData, "text/html")
   const caputreContent = capturedDom.getElementsByClassName(captureElement)
-
-  addToTableHead(tableTitleHeader)
-  addToTableHead(tableDataHeader)
   for (const content of caputreContent){
-
-    const title = getElementPart(content, tableTitles)
-    const breadText = getElementPart(content, tableData)
+    const title = parseContent(content, tableTitles)
+    const breadText = parseContent(content, tableData)
     addRowToTable(title, breadText)
   }
+  
   closeTable()
   return true
 })
 
-function getElementPart(content, elementToGet) {
+function parseContent(content, elementToGet) {
   const innerContent = content.innerHTML;
   return nonGreedyFindMultiLineElementsByAttributeOrText(innerContent, elementToGet)
 }

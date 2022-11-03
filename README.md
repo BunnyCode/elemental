@@ -42,6 +42,8 @@ Now the Add-on should show up in the list like this.
 
 ![Addon loaded](/readme_img/addon_loaded.png)
 
+---
+
 #### Using the add-on
 
 This add-on was tested and built around [Sweclockers](https://www.sweclockers.com)
@@ -85,3 +87,5 @@ bbParagraph
 ```
 
 ![Data shown](/readme_img/data_grabbed.png)
+
+Future development will be done, to allow for copying the table as a csv.

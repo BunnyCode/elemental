@@ -67,7 +67,7 @@ function logDataFetchMessage(dataFromUrl) {
   dataFromField.innerHTML = "Data Captured from: " + dataFromUrl
 }
 
-// test thingy
+// Make table with parameters.
 const getTitles = document.getElementById("get-titles")
 getTitles.addEventListener("click", function () {
   openTable()
@@ -93,11 +93,9 @@ getTitles.addEventListener("click", function () {
   return true
 })
 
-
-
-function getElementPart(content, searchParam) {
+function getElementPart(content, elementToGet) {
   const innerContent = content.innerHTML;
-  return nonGreedyFindMultiLineElementsByAttributeOrText(innerContent, searchParam)
+  return nonGreedyFindMultiLineElementsByAttributeOrText(innerContent, elementToGet)
 }
 
 

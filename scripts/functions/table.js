@@ -19,7 +19,7 @@ function setTableDataHeaderText() {
   const functionTag = document.querySelector(".table-creator")
   functionTag.innerHTML +=
     `<div>
-    <p>Tabel data header name</p>
+    <p>Table data header name</p>
     <input id="table-data">
     </input>
     </div>`

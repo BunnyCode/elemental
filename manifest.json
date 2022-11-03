@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Elemental",
-  "version": "0.0.2",
-  "description": "Gets element data on a page",
+  "version": "0.0.3",
+  "description": "Gets full element data on a page",
   "icons": {
       "16": "images/icon-16.png",
       "32": "images/icon-32.png",

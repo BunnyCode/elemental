@@ -1,3 +1,4 @@
+// Save HTML data to Chrome Storage.
 function setBodyData(capturedUrl) {
   const bodyElement = document.body.innerHTML
   chrome.storage.local.set({

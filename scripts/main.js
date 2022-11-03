@@ -1,8 +1,8 @@
-import manifest from '../manifest.json' // required for webpack to copy.
+import manifest from "../manifest.json" // required for webpack to copy.
 import { getBodyDataFromStorage } from "./getStoredData.js"
 import {
   initTableFunction,
-  setTitleTableHeaderText, 
+  setTitleTableHeaderText,
   setTableDataHeaderText,
   setBodyCaptureItteratorElement,
   setTitleCaptureItteratorElement,
@@ -10,13 +10,12 @@ import {
   openTable,
   addRowToTable,
   closeTable,
-  addToTableHead
+  addToTableHead,
 } from "./functions/table.js"
-import {nonGreedyFindMultiLineElementsByAttributeOrText} from '/node_modules/element-scraper/dist/index.js'
+import { nonGreedyFindMultiLineElementsByAttributeOrText } from "/node_modules/element-scraper/dist/index.js"
 
 // Only global variable in extension space.
 let htmlBodyData = ""
-
 
 // button for triggering data save to chrome local storage.
 const getData = document.getElementById("get-data")
@@ -34,7 +33,7 @@ async function getDataCapture() {
 const manipulateData = document.getElementById("function-table")
 manipulateData.addEventListener("click", function () {
   initTableFunction()
-  setTitleTableHeaderText() 
+  setTitleTableHeaderText()
   setTableDataHeaderText()
   setBodyCaptureItteratorElement()
   setTitleCaptureItteratorElement()
@@ -77,22 +76,23 @@ getTitles.addEventListener("click", function () {
   const captureElement = document.querySelector("#element-capture-name").value
   const tableTitles = document.querySelector("#table-title-attribute").value
   const tableData = document.querySelector("#table-data-attribute").value
-  
+
   const capturedDom = new DOMParser().parseFromString(htmlBodyData, "text/html")
   const caputreContent = capturedDom.getElementsByClassName(captureElement)
-  for (const content of caputreContent){
+  for (const content of caputreContent) {
     const title = parseContent(content, tableTitles)
     const breadText = parseContent(content, tableData)
     addRowToTable(title, breadText)
   }
-  
+
   closeTable()
   return true
 })
 
 function parseContent(content, elementToGet) {
-  const innerContent = content.innerHTML;
-  return nonGreedyFindMultiLineElementsByAttributeOrText(innerContent, elementToGet)
+  const innerContent = content.innerHTML
+  return nonGreedyFindMultiLineElementsByAttributeOrText(
+    innerContent,
+    elementToGet
+  )
 }
-
-

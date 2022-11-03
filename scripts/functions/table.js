@@ -1,14 +1,12 @@
 function initTableFunction() {
   const functionTag = document.querySelector(".loaded-function")
-  functionTag.innerHTML =
-    `<div class="table-creator">
+  functionTag.innerHTML = `<div class="table-creator">
     </div>`
 }
 
 function setTitleTableHeaderText() {
   const functionTag = document.querySelector(".table-creator")
-  functionTag.innerHTML =
-    `<div>
+  functionTag.innerHTML = `<div>
     <p>Table title header name</p>
     <input id="table-header">
     </input>
@@ -17,8 +15,7 @@ function setTitleTableHeaderText() {
 
 function setTableDataHeaderText() {
   const functionTag = document.querySelector(".table-creator")
-  functionTag.innerHTML +=
-    `<div>
+  functionTag.innerHTML += `<div>
     <p>Table data header name</p>
     <input id="table-data">
     </input>
@@ -27,8 +24,7 @@ function setTableDataHeaderText() {
 
 function setBodyCaptureItteratorElement() {
   const functionTag = document.querySelector(".table-creator")
-  functionTag.innerHTML +=
-    `<div>
+  functionTag.innerHTML += `<div>
     <p>Get data from elements containg attribute:</p>
     <input id="element-capture-name">
     </input>
@@ -37,8 +33,7 @@ function setBodyCaptureItteratorElement() {
 
 function setTitleCaptureItteratorElement() {
   const functionTag = document.querySelector(".table-creator")
-  functionTag.innerHTML +=
-    `<div>
+  functionTag.innerHTML += `<div>
     <p>Get titles from attribute</p>
     <input id="table-title-attribute">
     </input>
@@ -47,8 +42,7 @@ function setTitleCaptureItteratorElement() {
 
 function setDataCaptureItteratorElement() {
   const functionTag = document.querySelector(".table-creator")
-  functionTag.innerHTML +=
-    `<div>
+  functionTag.innerHTML += `<div>
     <p>Get data from attribute</p>
     <input id="table-data-attribute">
     </input>
@@ -57,30 +51,29 @@ function setDataCaptureItteratorElement() {
 
 function openTable() {
   const functionTag = document.querySelector(".capture-table")
-  functionTag.innerHTML =
-    `<table class="table">
+  functionTag.innerHTML = `<table class="table">
     <thead class="header">
     </thead>
     `
 }
+
 function closeTable() {
   const functionTag = document.querySelector(".capture-table")
-  functionTag.innerHTML +=
-    `</table>`
+  functionTag.innerHTML += `</table>`
 }
 
 function addToTableHead(headData) {
   const header = document.querySelector(".header")
-  const thFragment = document.createElement('th')
+  const thFragment = document.createElement("th")
   thFragment.innerHTML = headData
   header.appendChild(thFragment)
 }
 
 function addRowToTable(title, data) {
   const table = document.querySelector(".table")
-  const tableRow = document.createElement('tr')
-  const tdTitle = document.createElement('td')
-  const tdData = document.createElement('td')
+  const tableRow = document.createElement("tr")
+  const tdTitle = document.createElement("td")
+  const tdData = document.createElement("td")
   tdTitle.innerHTML = title
   tdData.innerHTML = data
   tableRow.appendChild(tdTitle)
@@ -88,8 +81,9 @@ function addRowToTable(title, data) {
   table.appendChild(tableRow)
 }
 
-export {initTableFunction, 
-  setTitleTableHeaderText, 
+export {
+  initTableFunction,
+  setTitleTableHeaderText,
   setTableDataHeaderText,
   setBodyCaptureItteratorElement,
   setTitleCaptureItteratorElement,
@@ -97,5 +91,5 @@ export {initTableFunction,
   openTable,
   addRowToTable,
   closeTable,
-  addToTableHead}
-
+  addToTableHead,
+}

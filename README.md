@@ -9,7 +9,7 @@ Makes it easy to cut out all the other clutter on the page, and just get what's 
 
 #### Links to dependancy
 
-
+https://github.com/BunnyCode/element-scraper
 
 #### To install add-on 
 

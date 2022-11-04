@@ -7,6 +7,10 @@ Makes it easy to cut out all the other clutter on the page, and just get what's 
 
 ---
 
+#### Links to dependancy
+
+
+
 #### To install add-on 
 
 Since the add-on is still in development, there is no packed version in the chrome store. You need to get the dependencies for building the app.

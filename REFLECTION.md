@@ -2,6 +2,22 @@
 
 Jag går igenom kapittel för kapittel och beskriver hur jag implementerart kunsakapen.
 
+
+### Förord runt utvecklingen
+
+Denna gång tog jag mig verkligen vatten över huvudet. Det har varit väldigt mycket svårare att få ihop detta, än jag kunnat ana. Det finns massor av fallgropar och problem med hur man får använda funktioner, och hämta data / kommunicera, mellan klientscript och Chrome Extension.
+Hade jag vetat komplexiteten innan jag var halvvägs, hade jag valt något annat. Så det hade kunnat bli ännu mer fokus på det vi lärt oss att integrera.
+
+Det har varit otroligt svårt att testa, då man måste bygga en ny version, ladda om addon, ladda om sidan, mata in värden, öppna utvecklingsverktyget, kolla efter fel, itterera.
+"Tyvärr" så innebar användningen av min egen modul att jag fick lära mig webpack, på grund av begräsningar i hur man får importera kod från npm.
+
+Men till sist fick jag in en av mina funktioner från element Scraper
+(Dock fick jag ta bort hela data laddnings delen då den endast funkar i Node.js)
+
+Nu ska jag inte beklaga mig mer.
+
+---
+
 ### Kapitel 1 (Ren kod)
 
 Detta är ju ett samlings kapitel om vad det innebär att skriva ”ren kod”. 

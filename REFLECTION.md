@@ -5,6 +5,8 @@ Jag går igenom kapittel för kapittel och beskriver hur jag implementerart kuns
 
 ### Förord runt utvecklingen
 
+> Jag har uppdaterat en del av dokumentationen på element-scraper, efter den kritik jag fick via slack. Länken ligger i Readme filen.
+
 Denna gång tog jag mig verkligen vatten över huvudet. Det har varit väldigt mycket svårare att få ihop detta, än jag kunnat ana. Det finns massor av fallgropar och problem med hur man får använda funktioner, och hämta data / kommunicera, mellan klientscript och Chrome Extension.
 Hade jag vetat komplexiteten innan jag var halvvägs, hade jag valt något annat. Så det hade kunnat bli ännu mer fokus på det vi lärt oss att integrera.
 
